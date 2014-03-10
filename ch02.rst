@@ -121,8 +121,8 @@ coordinate variables*, or *multidimensional coordinate variables*.
 
 
 
-Missing Data
-------------
+Missing Data, valid and actual range
+------------------------------------
 
 The NUG conventions (`NUG section 8.1  <http://www.unidata.ucar.edu/netcdf/docs/netcdf.html#Attribute-Conventions>`_ )
 provide the ``_FillValue``, ``missing_value``, ``valid_min``, ``valid_max``,
@@ -165,6 +165,16 @@ to the maximum representable value of IEEE single precision floats,
 and multiplying it by 100 produces an "Infinity" (using single
 precision arithmetic).
 
+This convention defines a two-element vector attribute ``actual_range``
+for variables containing numeric data. If the variable is packed
+using the ``scale_factor`` and ``add_offset`` attributes (see section
+8.1), the elements of the ``actual_range`` should have the type intended
+for the unpacked data. The elements of ``actual_range`` must be exactly
+equal to the minimum and the maximum data values which occur in the
+variable (when unpacked if packing is used), and both must be within
+the ``valid_range`` if specified. If the data is all missing or invalid,
+the ``actual_range`` attribute cannot be used.
+
 
 Attributes
 ==========
@@ -197,7 +207,7 @@ Identification of Conventions
 
 We recommend that netCDF files that follow these conventions indicate
 this by setting the NUG defined global attribute ``Conventions`` to the
-string value "``CF-1.6``" . The string is interpreted as a directory name relative to
+string value "``CF-1.7``" . The string is interpreted as a directory name relative to
 a directory that is a repository of documents describing sets of
 discipline-specific conventions. The conventions directory name is
 currently interpreted relative to the directory

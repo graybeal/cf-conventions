@@ -2,7 +2,7 @@
 NetCDF Climate and Forecast (CF) Metadata Conventions
 =====================================================
 
-Version 1.6, 5 December, 2011
+Version 1.7.1 DRAFT , 20 November, 2013
 ---------------------------------------
 
 :Original authors:
@@ -20,6 +20,7 @@ Version 1.6, 5 December, 2011
     - Heinke Höck, DKRZ
     - Alison Pamment, BADC
     - Martin Juckes, BADC
+    - Andrew Walsh, METOC
 
 Many others have contributed to the development of CF through their
 participation in discussions about proposed changes.
