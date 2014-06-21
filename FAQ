@@ -2,17 +2,203 @@
 
 This page covers many of the most common questions asked about the Climate and Forecast conventions (and Standard Names). If you have a question that isn't on this list, please ask it of the CF-metadata mail list, so that the CF community can respond. We will use that list as the basis for additional content for this set of questions.
 
-The questions are organized by topic.
+The questions are organized by topic. Click on any question to go to its answer.
+
+------------
+
+# Contents
 
 ## CF Background
 
-* What is COARDS?
+This section includes general background about the CF conventions.
+
+* [What are the CF conventions, and what do they include?](#)(#what)
+* [Why did we need yet another netCDF convention?](#why)
+* [Who manages the CF conventions?](#who)
+* [How long has CF been around? Is it mature?](#when_started) 
+* [How does CF relate to other conventions (especially COARDS and netCDF)?](#related_conventions)
+
+## How to work with the CF Convention
+
+* [Do the CF conventions stand alone?](#standalone)
+* [How do I ask questions about CF?](#ask) (mail list)
+* [How do I propose a change?](#propose)  (mail list, trac)
+* [What is the process for accepting a change?](#change_process)
+* [When are changes added to the CF Convention?](#when_updated)
+
+## Rich technical questions about CF
+
+These questions address big picture concepts included in CF.
+
+* [What are Discrete Sampling Geometries? Do I need to worry about them?](#dsg)
+* [My file was written using an earlier version of CF. Is it still compliant?](#version_compliance)
 
 ## CF Standard Names
 
-* How do I get a standard name added to the CF Standard Names?
+General and specific information about purpose and mechanisms of standard names
 
-## COARDS Units 
+* [What are the components of a standard name?](#stdnames_components) -- name, modifiers, required attributes, additional columns
+* [How can I find the standard name I need?](#stdnames_find)
+* [How do I ask for a new standard name?](#stdnames_ask)
+* [What is the structure of a good standard name?](#stdnames_structure)
+* [Are there common standard name phrases that get re-used?](#stdnames_phrases)
+* [What can be described in a standard name?](#stdnames_facets) -- different descriptive categories
+* [What shouldn't be described in a standard name?](#stdnames_nonos)
+* [What is the official list of standard names?](#stdnames_official) -- what are the services and how are they different
+* [Are there mappings of standard names to other vocabularies?](#stdnames_mappings)
 
-These are not strictly the domain of CF, but as CF is standardized on them, often they become the subject of CF questions.
+## CF and COARDS Units (UDUNITS)
+
+These questions are not strictly part of CF, but CF depends on this understanding.
+
+* [What does it mean that a standard name _{?}_ has to be in canonical units?](#canonical)
+* [Why does CF use UDUNITS as its standard?](#udunits_why)
+* [How do I specify units in CF?](#cf_units) -- how to build and use CF-compatible units
+* [Are there other good resources about UDUNITS?](#udunits_refs)
+
+## Maintaining the CF standard
+
+This section is about the meta-question of procedures involved to update CF standards documentation.
+
+* [Who physically maintains the standards documentation?](#who_docs)
+* [Where is the documentation stored?](#where_docs)
+* [Can I fork (get a copy of) the repository?](#access_docs)
+* [How can I submit suggested changes?](#update_docs)
+
+------------
+
+# Questions and Answers
+
+## CF background
+
+<a name="what"></a>
+### What are the CF conventions, and what do they include?
+
+
+<a name="why"></a>
+### Why did we need yet another netCDF convention?
+
+
+<a name="who"></a>
+### Who manages the CF conventions?
+
+
+<a name="when_started"></a>
+### How long has CF been around? Is it mature?
+_ _
+
+<a name="related_conventions"></a>
+### How does CF relate to other conventions (especially COARDS and netCDF)?
+
+
+
+## How to work with the CF Convention
+
+<a name="standalone"></a>
+### Do the CF conventions stand alone?
+
+
+<a name="ask"></a>
+### How do I ask questions about CF?
+_ (mail list)_
+
+<a name="propose"></a>
+### How do I propose a change?
+_  (mail list, trac)_
+
+<a name="change_process"></a>
+### What is the process for accepting a change?
+
+
+<a name="when_updated"></a>
+### When are changes added to the CF Convention?
+
+
+
+## Rich technical questions about CF
+
+<a name="dsg"></a>
+### What are Discrete Sampling Geometries? Do I need to worry about them?
+
+
+<a name="version_compliance"></a>
+### My file was written using an earlier version of CF. Is it still compliant?
+
+
+
+## CF Standard Names
+
+<a name="stdnames_components"></a>
+### What are the components of a standard name?
+_ -- name, modifiers, required attributes, additional columns_
+
+<a name="stdnames_find"></a>
+### How can I find the standard name I need?
+
+
+<a name="stdnames_ask"></a>
+### How do I ask for a new standard name?
+
+
+<a name="stdnames_structure"></a>
+### What is the structure of a good standard name?
+
+
+<a name="stdnames_phrases"></a>
+### Are there common standard name phrases that get re-used?
+
+
+<a name="stdnames_facets"></a>
+### What can be described in a standard name?
+_ -- different descriptive categories_
+
+<a name="stdnames_nonos"></a>
+### What shouldn't be described in a standard name?
+
+
+<a name="stdnames_official"></a>
+### What is the official list of standard names?
+_ -- what are the services and how are they different_
+
+<a name="stdnames_mappings"></a>
+### Are there mappings of standard names to other vocabularies?
+
+
+
+## CF and COARDS Units (UDUNITS)
+
+<a name="canonical"></a>
+### What does it mean that a standard name _{?}_ has to be in canonical units?
+
+
+<a name="udunits_why"></a>
+### Why does CF use UDUNITS as its standard?
+
+
+<a name="cf_units"></a>
+### How do I specify units in CF?
+_ -- how to build and use CF-compatible units_
+
+<a name="udunits_refs"></a>
+### Are there other good resources about UDUNITS?
+
+
+
+## Maintaining the CF standard
+
+<a name="who_docs"></a>
+### Who physically maintains the standards documentation?
+
+
+<a name="where_docs"></a>
+### Where is the documentation stored?
+
+
+<a name="access_docs"></a>
+### Can I fork (get a copy of) the repository?
+
+
+<a name="update_docs"></a>
+### How can I submit suggested changes?
+
 
