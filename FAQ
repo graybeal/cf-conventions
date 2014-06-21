@@ -96,7 +96,11 @@ _ _
 
 <a name="standalone"></a>
 ### Do the CF conventions stand alone?
+Not entirely; because CF is a netCDF convention, it assumes the netCDF standard is being followed. It also is based on the netCDF convention called the [COARDS conventions](http://ferret.wrc.noaa.gov/noaa_coop/coop_cdf_profile.html) (for their sponsor, the Cooperative Ocean/Atmosphere Research Data Service), developed in 1995.  And it relies on the UDUNITS system of specifying units (see <a href="#udunits">CF and COARDS units</a> below). 
 
+CF does not replicate the information from these other standards and conventions, so to adhere to CF you have to become familiar with the other specifications as well.
+
+CF does try to be self-contained, for example the CF Standard Names attempt to be as general and well-defined as possible, so the reader does not have to access outside sources to understand the terms.
 
 <a name="ask"></a>
 ### How do I ask questions about CF?
@@ -164,7 +168,7 @@ _ -- what are the services and how are they different_
 ### Are there mappings of standard names to other vocabularies?
 
 
-
+<a name="udunits"></a>
 ## CF and COARDS Units (UDUNITS)
 
 <a name="canonical"></a>
