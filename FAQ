@@ -13,12 +13,12 @@ The questions are organized by topic. Click on any question to go to its answer.
 This section includes general background about the CF conventions.
 
 * [What are the CF conventions, and what do they include?](#)(#what)
-* [Why did we need yet another netCDF convention?](#why)
+* [Why did we want yet another netCDF convention?](#why)
 * [Who manages the CF conventions?](#who)
 * [How long has CF been around? Is it mature?](#when_started) 
 * [How does CF relate to other conventions (especially COARDS and netCDF)?](#related_conventions)
 
-## How to work with the CF Convention
+## WOrking with the CF Convention
 
 * [Do the CF conventions stand alone?](#standalone)
 * [How do I ask questions about CF?](#ask) (mail list)
@@ -76,7 +76,7 @@ This section is about the meta-question of procedures involved to update CF stan
 
 
 <a name="why"></a>
-### Why did we need yet another netCDF convention?
+### Why did we want yet another netCDF convention?
 
 
 <a name="who"></a>
@@ -92,7 +92,7 @@ _ _
 
 
 
-## How to work with the CF Convention
+## Working with the CF Convention
 
 <a name="standalone"></a>
 ### Do the CF conventions stand alone?
