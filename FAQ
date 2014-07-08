@@ -132,7 +132,7 @@ Discrete Sampling Geometries, addressed in Section 9 of the CF Conventions, were
 
 <a name="version_compliance"></a>
 ### My file was written using an earlier version of CF. Is it still compliant?
-The compliance is determined by the Conventions version number you define in the 'Conventions' attribute within each file. If your file complies with its declared version of the Conventions, it stays in compliance with CF even as newer versions of the CF Conventions are released. As a general rule, tools that work with files following the CF convention should be backward-compatible with earlier versions. 
+The compliance is determined by the version number you define in the `Conventions` attribute within each file. If your file complies with the specifications of the CF version in the `Conventions` attribute, it stays in compliance with CF even as newer versions of the CF Conventions are released. As a general rule, tools that work with files following the CF convention should be backward-compatible with earlier versions. 
 
 An effort is made to avoid changing specific aspects of previous versions of the CF Conventions, though occasionally this is not possible.
 
@@ -141,6 +141,7 @@ An effort is made to avoid changing specific aspects of previous versions of the
 <a name="stdnames_components"></a>
 ### What are the components of a standard name?
 _ -- name, modifiers, required attributes, additional columns_
+A CF standard name attribute 
 
 <a name="stdnames_find"></a>
 ### How can I find the standard name I need?
