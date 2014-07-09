@@ -22,8 +22,8 @@ This section includes general background about the CF conventions.
 ## Working with the CF Convention
 
 * [Do the CF conventions stand alone?](#standalone)
-* [How do I ask questions about CF?](#ask) (mail list)
-* [How do I propose a change?](#propose)  (mail list, trac)
+* [How do I ask questions about CF?](#ask)
+* [How do I propose a change?](#propose)
 * [What is the process for accepting a change?](#change_process)
 * [When are changes added to the CF Convention?](#when_updated)
 
@@ -38,23 +38,28 @@ These questions address big picture concepts included in CF.
 
 General and specific information about purpose and mechanisms of standard names
 
+<<<<<<< HEAD
+* [What is the purpose of the standard name?](#stdnames_purpose)
 * [What are the components of a standard name?](#stdnames_components) -- name, modifiers, required attributes, additional columns
+=======
+* [What are the components of a standard name?](#stdnames_components)
+>>>>>>> FETCH_HEAD
 * [How can I find the standard name I need?](#stdnames_find)
 * [How do I ask for a new standard name?](#stdnames_ask)
 * [What is the structure of a good standard name?](#stdnames_structure)
 * [Are there common standard name phrases that get re-used?](#stdnames_phrases)
-* [What can be described in a standard name?](#stdnames_facets) -- different descriptive categories
+* [What can be described in a standard name?](#stdnames_facets)
 * [What shouldn't be described in a standard name?](#stdnames_nonos)
-* [What is the official list of standard names?](#stdnames_official) -- what are the services and how are they different
+* [What is the official list of standard names?](#stdnames_official)
 * [Are there mappings of standard names to other vocabularies?](#stdnames_mappings)
 
 ## CF and COARDS Units (UDUNITS)
 
 These questions are not strictly part of CF, but CF depends on this understanding.
 
-* [What does it mean that a standard name _{?}_ has to be in canonical units?](#canonical)
+* [If my variable has a standard name, must it have the corresponding canonical units?](#canonical)
 * [Why does CF use UDUNITS as its standard?](#udunits_why)
-* [How do I specify units in CF?](#cf_units) -- how to build and use CF-compatible units
+* [How do I specify units in CF?](#cf_units)
 * [Are there other good resources about UDUNITS?](#udunits_refs)
 
 ## Maintaining the CF standard
@@ -82,7 +87,7 @@ Principles of CF include self-describing data (no external tables needed for und
 
 <a name="why"></a>
 ### Why did we want yet another netCDF convention?
-The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitude�longitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
+The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitude-longitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
 
 <a name="who"></a>
 ### Who manages the CF conventions?
@@ -128,7 +133,9 @@ Changes to the CF Convention itself are grouped into major releases. Because the
 
 <a name="dsg"></a>
 ### What are Discrete Sampling Geometries? Do I need to worry about them?
-Discrete Sampling Geometries, addressed in Section 9 of the CF Conventions, were added to offer greater efficiency and clarity for storing a collection of 'features' in a single file. We can define a feature by example for now: it can be a point, a time series, a trajectory, a profile, a time series (of) profile(s), or a trajectory (of) profile(s)
+Discrete Sampling Geometries, addressed in Section 9 of the CF Conventions, were added to offer greater efficiency and clarity for storing a collection of 'features' in a single file. Here we define a feature by example: it can be a point, a time series, a trajectory, a profile, a time series (of) profile(s), or a trajectory (of) profile(s). All of these can be stored in CF-compliant netCDF files, but there was no consistent way to do so and people and programs could not leverage the features in the files.
+
+You don't have to worry about Discrete Sampling Geometries, or DSGs, in order to be CF-compliant. If you have data that correspond to one of these feature types, you can read the the Discrete Sampling Geometry section to learn how to represent those data so that others can fully leverage them. (Note: The `feature_type attribute` is reserved for files that represent a Discrete Sampling Geometry.)
 
 <a name="version_compliance"></a>
 ### My file was written using an earlier version of CF. Is it still compliant?
@@ -138,34 +145,72 @@ An effort is made to avoid changing specific aspects of previous versions of the
 
 ## CF Standard Names
 
+<a name="stdnames_purpose"></a>
+### What is the purpose of the standard name?
+The purpose of the standard name is to make it possible for a computer to decide if the named variable is likely to be meaningfully comparable to another named variable. It is expected that researchers will review the specifics of variables, particularly their long_name and source attributes, to assess whether they are truly interoperable; but variables with different standard names are highly unlikely to be directly comparable.
+
 <a name="stdnames_components"></a>
 ### What are the components of a standard name?
-_ -- name, modifiers, required attributes, additional columns_
-A CF standard name attribute 
+A CF standard name is a unique text string, part of which is associated in the CF Standard Names table to other attributes. 
+
+The text string is made up of two parts: the name (from the CF Standard Names table), and optionally, following the name and one or more blanks, a standard name modifier. The name contains no white space (underscores separate the words, in practice) and identifies the physical quantity. The modifier is used to describe a quantity which is related to another variable with the modified standard name. Details are provided in the convention section on [Standard Name](http://cfconventions.org/1.6.html#standard-name), and examples of modifiers are given in [Appendix C](http://cfconventions.org/1.6.html#standard-name-modifiers). 
+
+Several attributes are required for every standard name: the canonical units, which are *typical* units of the physical quantity, and the description, which clarifies related quantities and meanings of the standard name (but is not strictly a definition per se). Older standard names may not have a description. 
+
+In addition, standard names that come from certain sources may have GRIB parameter code(s) and/or AMIP identifiers; these are not generally required.
 
 <a name="stdnames_find"></a>
 ### How can I find the standard name I need?
+To find standard names that describe your data, open up the latest Standard Name table (as HTML, XML, or PDF) and search through it for words typically used for your data. (Because standard names contain no blanks, you may want tosearch for one word at a time, or even part of a word, rather than a full phrase like "air temperature".) If you can not find any matches, you can browse the table to see the kinds of names that exist -- names strongly lean toward environmental modeling and observation data, especially in atmosphere and ocean science.
 
+If you can't find any matches, send an email to the CF-Metadata list describing your variables. (See the [question on asking for a new standard name](#stdnames_ask).)
 
 <a name="stdnames_ask"></a>
 ### How do I ask for a new standard name?
+You ask for a new standard name by sending an email to the [CF-Metadata Mailing List](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/). You should sign up to the mailing list before sending your email, so you can follow the discussion of your request.
 
+In the email specify the following for each standard name you want to request:
+* its name
+* its description
+* its canonical units
+
+Use other examples from the Standard Names table to model your request, or review past requests in the mail list archives.
 
 <a name="stdnames_structure"></a>
 ### What is the structure of a good standard name?
+A good standard name will typically include several characteristics that, together, characterize your variable. Common characteristics (or *facets*) include (with examples in parentheses):
+* medium or realm of the entity (land, or sea_ice)
+* a transformation component (flux, or concentration_of)
+* a substance (sea_water, or carbon)
+* a state, qualifying the substance or process (atomic, or frozen)
+* a quantity being measured
 
+The order is not rule-based; the goal is to make the name as clear and natural as possible. So an example standard name with most of the above is mole_concentration_of_atomic_nitrogen_in_air (quantity-transformation-state-substance-medium).
 
 <a name="stdnames_phrases"></a>
 ### Are there common standard name phrases that get re-used?
-
+Yes, there are phrases and patterns that reappear in different names. If you have to build a lot of standard names for different types of variables, some existing analyses may be helpful; send a note to the CF-Metadata list for guidance. If you are creating just a few standard names, it will be easiest to send an initial request using your best guess for the names; the list will perform the needed comparison to existing usage.
 
 <a name="stdnames_facets"></a>
 ### What can be described in a standard name?
-_ -- different descriptive categories_
+A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
+Surface | Source | Scientific Component | Medium/Realm | Transformation | 
+Vector Component | Coordinate | Role | Spectral Band | Energy | 
+Substance | State | expressed as (Substance or Property) | Fraction | Salinity | 
+Temperature | Quantity | with respect to | defined by | ratio of | 
+ratio to | (product) and | Process | Model | difference from | 
+difference to | Angle | at (Surface or Condition) | in (Substance or Realm) | into | 
+out of | to | from  | reflected by | over | 
+above | below | accumulated in | Statistics | Condition | 
+assuming (Condition) | due to | excluding  | for  | by  | reported on | Artifact State
 
 <a name="stdnames_nonos"></a>
 ### What shouldn't be described in a standard name?
-
+The standard name should not include:
+* the details of the measurement process by which the observed quantity was obtained
+* mathematical transformations such as addition, multiplication, and averaging (these are handled by cell_methods)
+* specialized terms that are not meaningful to a broad scientific audience, unless widely used and agreed on by the community of origin
+* acronyms
 
 <a name="stdnames_official"></a>
 ### What is the official list of standard names?
@@ -179,7 +224,7 @@ _ -- what are the services and how are they different_
 ## CF and COARDS Units (UDUNITS)
 
 <a name="canonical"></a>
-### What does it mean that a standard name _{?}_ has to be in canonical units?
+### If my variable has a standard name, must it have the corresponding canonical units?
 
 
 <a name="udunits_why"></a>
