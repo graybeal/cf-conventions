@@ -192,7 +192,7 @@ Yes, there are phrases and patterns that reappear in different names. If you hav
 A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
 
 
-|  |  |  
+  |  |  |   
  --- | --- | --- | ---  
 Surface | Source | Scientific Component | Medium/Realm 
 Transformation | Vector Component | Coordinate | Role 
