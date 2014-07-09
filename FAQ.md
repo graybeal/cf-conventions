@@ -38,16 +38,8 @@ These questions address big picture concepts included in CF.
 
 General and specific information about purpose and mechanisms of standard names
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 * [What is the purpose of the standard name?](#stdnames_purpose)
-* [What are the components of a standard name?](#stdnames_components) -- name, modifiers, required attributes, additional columns
-=======
 * [What are the components of a standard name?](#stdnames_components)
->>>>>>> FETCH_HEAD
-=======
-* [What are the components of a standard name?](#stdnames_components)
->>>>>>> FETCH_HEAD
 * [How can I find the standard name I need?](#stdnames_find)
 * [How do I ask for a new standard name?](#stdnames_ask)
 * [What is the structure of a good standard name?](#stdnames_structure)
