@@ -191,18 +191,21 @@ Yes, there are phrases and patterns that reappear in different names. If you hav
 ### What can be described in a standard name?
 A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
 
-A | B | C | D |
- -- | -- | -- | -- | --
-Surface | Source | Scientific Component | Medium/Realm | Transformation
-Vector Component | Coordinate | Role | Spectral Band | Energy
-Substance | State | expressed as (Substance or Property) | Fraction | Salinity
-Temperature | Quantity | with respect to | defined by | ratio of
-ratio to | (product) and | Process | Model | difference from
-difference to | Angle | at (Surface or Condition) | in (Substance or Realm) | into
-out of | to | from  | reflected by | over
-above | below | accumulated in | Statistics | Condition
-assuming (Condition) | due to | excluding  | for  | by
-reported on | Artifact State | | | 
+
+|  |  |  
+ --- | --- | --- | ---  
+Surface | Source | Scientific Component | Medium/Realm 
+Transformation | Vector Component | Coordinate | Role 
+Spectral Band | Energy | Substance | State 
+expressed as (Substance or Property) | Fraction | Salinity | Temperature
+Quantity | with respect to | defined by | ratio of
+ratio to | (product) and | Process | Model 
+difference from | difference to | Angle | at (Surface or Condition)
+in (Substance or Realm) | into | out of | 
+to | from  | reflected by | over
+above | below | accumulated in | Statistics 
+Condition | assuming (Condition) | due to | excluding  
+for  | by | reported on | Artifact State
 
 
 <a name="stdnames_nonos"></a>
