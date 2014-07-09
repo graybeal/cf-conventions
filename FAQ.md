@@ -22,8 +22,8 @@ This section includes general background about the CF conventions.
 ## Working with the CF Convention
 
 * [Do the CF conventions stand alone?](#standalone)
-* [How do I ask questions about CF?](#ask) (mail list)
-* [How do I propose a change?](#propose)  (mail list, trac)
+* [How do I ask questions about CF?](#ask)
+* [How do I propose a change?](#propose)
 * [What is the process for accepting a change?](#change_process)
 * [When are changes added to the CF Convention?](#when_updated)
 
@@ -38,14 +38,14 @@ These questions address big picture concepts included in CF.
 
 General and specific information about purpose and mechanisms of standard names
 
-* [What are the components of a standard name?](#stdnames_components) -- name, modifiers, required attributes, additional columns
+* [What are the components of a standard name?](#stdnames_components)
 * [How can I find the standard name I need?](#stdnames_find)
 * [How do I ask for a new standard name?](#stdnames_ask)
 * [What is the structure of a good standard name?](#stdnames_structure)
 * [Are there common standard name phrases that get re-used?](#stdnames_phrases)
-* [What can be described in a standard name?](#stdnames_facets) -- different descriptive categories
+* [What can be described in a standard name?](#stdnames_facets)
 * [What shouldn't be described in a standard name?](#stdnames_nonos)
-* [What is the official list of standard names?](#stdnames_official) -- what are the services and how are they different
+* [What is the official list of standard names?](#stdnames_official)
 * [Are there mappings of standard names to other vocabularies?](#stdnames_mappings)
 
 ## CF and COARDS Units (UDUNITS)
@@ -54,7 +54,7 @@ These questions are not strictly part of CF, but CF depends on this understandin
 
 * [What does it mean that a standard name _{?}_ has to be in canonical units?](#canonical)
 * [Why does CF use UDUNITS as its standard?](#udunits_why)
-* [How do I specify units in CF?](#cf_units) -- how to build and use CF-compatible units
+* [How do I specify units in CF?](#cf_units)
 * [Are there other good resources about UDUNITS?](#udunits_refs)
 
 ## Maintaining the CF standard
@@ -82,7 +82,7 @@ Principles of CF include self-describing data (no external tables needed for und
 
 <a name="why"></a>
 ### Why did we want yet another netCDF convention?
-The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitude�longitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
+The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitude-longitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
 
 <a name="who"></a>
 ### Who manages the CF conventions?
