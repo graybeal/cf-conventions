@@ -191,6 +191,8 @@ Yes, there are phrases and patterns that reappear in different names. If you hav
 ### What can be described in a standard name?
 A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
 
+ | | | |
+ -- | -- | -- | -- | --
 Surface | Source | Scientific Component | Medium/Realm | Transformation
 Vector Component | Coordinate | Role | Spectral Band | Energy
 Substance | State | expressed as (Substance or Property) | Fraction | Salinity
