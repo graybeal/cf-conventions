@@ -157,7 +157,7 @@ In addition, standard names that come from certain sources may have GRIB paramet
 
 <a name="stdnames_find"></a>
 ### How can I find the standard name I need?
-To find standard names that describe your data, open up the latest Standard Name table (as HTML, XML, or PDF) and search through it for words typically used for your data. (Because standard names contain no blanks, you may want tosearch for one word at a time, or even part of a word, rather than a full phrase like "air temperature".) If you can not find any matches, you can browse the table to see the kinds of names that exist -- names strongly lean toward environmental modeling and observation data, especially in atmosphere and ocean science.
+To find standard names that describe your data, open up the latest Standard Name table (as HTML, XML, or PDF) and search through it for words typically used for your data. (Because standard names contain no blanks, you may want to search for one word at a time, or even part of a word, rather than a full phrase like "air temperature".) If you can not find any matches, you can browse the table to see the kinds of names that exist -- names strongly lean toward environmental modeling and observation data, especially in atmosphere and ocean science.
 
 If you can't find any matches, send an email to the CF-Metadata list describing your variables. (See the [question on asking for a new standard name](#stdnames_ask).)
 
@@ -190,15 +190,19 @@ Yes, there are phrases and patterns that reappear in different names. If you hav
 <a name="stdnames_facets"></a>
 ### What can be described in a standard name?
 A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
-Surface | Source | Scientific Component | Medium/Realm | Transformation | 
-Vector Component | Coordinate | Role | Spectral Band | Energy | 
-Substance | State | expressed as (Substance or Property) | Fraction | Salinity | 
-Temperature | Quantity | with respect to | defined by | ratio of | 
-ratio to | (product) and | Process | Model | difference from | 
-difference to | Angle | at (Surface or Condition) | in (Substance or Realm) | into | 
-out of | to | from  | reflected by | over | 
-above | below | accumulated in | Statistics | Condition | 
-assuming (Condition) | due to | excluding  | for  | by  | reported on | Artifact State
+C1           |            C2 |            C3 |            C4 | C5
+------------ | ------------- | ------------- | ------------- | -------------
+Surface | Source | Scientific Component | Medium/Realm | Transformation
+Vector Component | Coordinate | Role | Spectral Band | Energy
+Substance | State | expressed as (Substance or Property) | Fraction | Salinity
+Temperature | Quantity | with respect to | defined by | ratio of
+ratio to | (product) and | Process | Model | difference from
+difference to | Angle | at (Surface or Condition) | in (Substance or Realm) | into
+out of | to | from  | reflected by | over
+above | below | accumulated in | Statistics | Condition
+assuming (Condition) | due to | excluding  | for  | by
+reported on | Artifact State | | | 
+
 
 <a name="stdnames_nonos"></a>
 ### What shouldn't be described in a standard name?
