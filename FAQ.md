@@ -19,7 +19,7 @@ This section includes general background about the CF conventions.
 * [How long has CF been around? Is it mature?](#when_started) 
 * [How does CF relate to other conventions (especially COARDS and netCDF)?](#related_conventions)
 
-## WOrking with the CF Convention
+## Working with the CF Convention
 
 * [Do the CF conventions stand alone?](#standalone)
 * [How do I ask questions about CF?](#ask) (mail list)
@@ -82,7 +82,7 @@ Principles of CF include self-describing data (no external tables needed for und
 
 <a name="why"></a>
 ### Why did we want yet another netCDF convention?
-The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitudeÐlongitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
+The existing conventions were (and are) typically much less robust for describing the syntax and semantics of netCDF data. The motivation for developing CF was the need for extra features not found in netCDF or COARDS. These include conventions for grid-cell boundaries, horizontal grids other than latitudeï¿½longitude, recording common statistical operations, standardised identification of physical quantities, non-spatiotemporal axes, climatological statistics and data compression. 
 
 <a name="who"></a>
 ### Who manages the CF conventions?
