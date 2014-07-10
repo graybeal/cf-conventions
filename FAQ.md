@@ -141,6 +141,8 @@ An effort is made to avoid changing specific aspects of previous versions of the
 
 ## CF Standard Names
 
+Reference [section 3.3 of the CF Convention, Standard Names](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.6/build/cf-conventions#standard-name)
+
 <a name="stdnames_purpose"></a>
 ### What is the purpose of the standard name?
 The purpose of the standard name is to provide a succinct and distinguishing description of a variable, in a way that encourages interoperability. 
@@ -236,11 +238,24 @@ The standard name should not include:
 
 <a name="stdnames_official"></a>
 ### What is the official list of standard names?
-_ -- what are the services and how are they different_
+The CF site contains [the official list of CF standard names](http://cfconventions.org/standard-names). The XML document pointed to from that page is the primary reference, but the HTML and PDF documents are produced automatically from the XML, and should contain the same information.
+
+Several other sites represent alternative views of knowledge artifacts of the standard names. 
+'''To be confirmed and links provided.'''
+* NERC Vocabulary Server
+* MMI Ontology Registry and Repository
+* The MARIS Vocabulary Server
+These have been republished from the original XML, and as of 2014 are updated quickly after the original XML is changed. (The NERC Vocabulary Server is updated simultaneously with the publication of the original XML document.)
 
 <a name="stdnames_mappings"></a>
-### Are there mappings of standard names to other vocabularies?
+### Are there mappings of the standard name terms to other terms?
+'''To be confirmed and links provided.'''
 
+Yes, perhaps most important of these is a mapping within the CF standard names vocabulary. This provides SKOS-based relationships among CF terms, for example broader and narrower relations.
+
+The CF standard names also have been mapped to the Global Change Master Directory science keywords, and terms from the SWEET Ontology. 
+
+As of 2014, none of these mappings are not regularly updated with the release  new versions of the CF standard names.
 
 <a name="udunits"></a>
 ## CF and COARDS Units (UDUNITS)
@@ -266,17 +281,20 @@ _ -- how to build and use CF-compatible units_
 
 <a name="who_docs"></a>
 ### Who physically maintains the standards documentation?
-
+'''Who maintains the CF standard?'''
+Alison Pamment of the [Science and Technologies Facility Council](http://stfc.ac.uk) maintains the CF Standard Names.
+A team at Lawrence Livermore National Lab maintains documents and content on the CF web site.
 
 <a name="where_docs"></a>
 ### Where is the documentation stored?
-
+'''To be confirmed and links provided.'''
+The documentation is stored on a GitHub repository, and its format is converted for presentation on the CF web site. 
 
 <a name="access_docs"></a>
 ### Can I fork (get a copy of) the repository?
-
+Yes, the repository is public and can be forked. We request you contact CF via the CF-metadata mail list before making pull requests, however. There are various maintenance processes going on behind the scenes to update the various CF content.
 
 <a name="update_docs"></a>
 ### How can I submit suggested changes?
-
+Once you understand the procedure by which your suggested changes should be approved (e.g., email approval on the cF-metadata list, a trac ticket, or some other arrangement), you may be able to submit suggested changes as a pull request on the appropriate content. However, as noted above, this must first be agreed with the person overseeing that content.
 
