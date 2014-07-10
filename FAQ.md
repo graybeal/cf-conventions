@@ -183,14 +183,17 @@ A good standard name will typically include several characteristics that, togeth
 
 The order is not rule-based; the goal is to make the name as clear and natural as possible. So an example standard name with most of the above is mole_concentration_of_atomic_nitrogen_in_air (quantity-transformation-state-substance-medium).
 
+Several structural analyses have been performed of standard names. For more information, check out [What can be described in a standard name?](#stdnames_facets).
+
 <a name="stdnames_phrases"></a>
 ### Are there common standard name phrases that get re-used?
 Yes, there are phrases and patterns that reappear in different names. If you have to build a lot of standard names for different types of variables, some existing analyses may be helpful; send a note to the CF-Metadata list for guidance. If you are creating just a few standard names, it will be easiest to send an initial request using your best guess for the names; the list will perform the needed comparison to existing usage.
 
 <a name="stdnames_facets"></a>
 ### What can be described in a standard name?
-A comprehensive list of the standard name facets, based on a SWEET mapping and subsequent re-analysis, is:
+'''IN CONSTRUCTION'''
 
+For an example, one comprehensive list of the standard name facets, based on the SWEET mapping and subsequent re-analysis for the last item above, is:
 
   |  |  |  |
  --- | --- | --- | ---  
@@ -206,6 +209,13 @@ to | from  | reflected by | over
 above | below | accumulated in | Statistics 
 Condition | assuming (Condition) | due to | excluding  
 for  | by | reported on | Artifact State
+
+A grammar for CF standard names has been considered several times (and produced similar lists). Among these efforts:
+* Karl Taylor ([list post](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2008/052705.html)): A different approach to standard name construction
+* Robert Muetzeifeldt ([list post](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2010/053657.html)): [A grammar for CF standard names](http://envarml.pbworks.com/w/page/8988920/FrontPage) / 1103 names
+* Jonathan Gregory et al ([list post](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2010/048064.html)): [standard name grammar/Parsing CF standard names](http://www.met.reading.ac.uk/~jonathan/CF_metadata/14.1/) / 2072 names
+* Rob Raskin ([list post mention](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2009/047768.html)): [mapped CF standard name list to SWEET-based ontologolical representation](http://sweet.jpl.nasa.gov/ontology/) (Excel) / 2149 names
+* John Graybeal (no list post):  auto-generated pseudo-CF names from CF components (Excel) / 2523 names
 
 
 <a name="stdnames_nonos"></a>
