@@ -143,7 +143,15 @@ An effort is made to avoid changing specific aspects of previous versions of the
 
 <a name="stdnames_purpose"></a>
 ### What is the purpose of the standard name?
-The purpose of the standard name is to make it possible for a computer to decide if the named variable is likely to be meaningfully comparable to another named variable. It is expected that researchers will review the specifics of variables, particularly their long_name and source attributes, to assess whether they are truly interoperable; but variables with different standard names are highly unlikely to be directly comparable.
+The purpose of the standard name is to provide a succinct and distinguishing description of a variable, in a way that encourages interoperability. 
+
+The standard name is useful for listing and discussing the contents of a file, the kind of answer an expert might give to the non-expert's question "What is in that file?" This helps users share files across disciplines and over time.
+
+The standard name also makee it possible for a computer to assess whether a variables is likely to be mathematically comparable to another.  This increases interoperability by enabling automated discovery. Variables with different standard names are presumably not directly comparable. (Variables with different (i.e., incompatible) canonical units are not mathematically comparable, and so are required to have different standard names.) Of course users must review the details of variables, particularly their `long_name` and `source` attributes, to assess whether they are truly interoperable. 
+
+
+References:
+* J Gregory, 2008: [what standard names are for](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2008/052334.html)
 
 <a name="stdnames_components"></a>
 ### What are the components of a standard name?
@@ -221,9 +229,9 @@ A grammar for CF standard names has been considered several times (and produced 
 <a name="stdnames_nonos"></a>
 ### What shouldn't be described in a standard name?
 The standard name should not include:
-* the details of the measurement process by which the observed quantity was obtained
+* provenance of the variable, including details of the process by which the value was obtained
 * mathematical transformations such as addition, multiplication, and averaging (these are handled by cell_methods)
-* specialized terms that are not meaningful to a broad scientific audience, unless widely used and agreed on by the community of origin
+* specialized terms not meaningful to a broad scientific audience, unless widely used and agreed on by the community of origin
 * acronyms
 
 <a name="stdnames_official"></a>
