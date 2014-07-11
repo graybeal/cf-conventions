@@ -4,6 +4,7 @@ This page covers many of the most common questions asked about the Climate and F
 
 The questions are organized by topic. Click on any question to go to its answer.
 
+<div style="color:red;">This could be red.</div>
 ------------
 
 # Contents
