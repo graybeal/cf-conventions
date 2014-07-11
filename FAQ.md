@@ -241,7 +241,7 @@ The standard name should not include:
 The CF site contains [the official list of CF standard names](http://cfconventions.org/standard-names). The XML document pointed to from that page is the primary reference, but the HTML and PDF documents are produced automatically from the XML, and should contain the same information.
 
 Several other sites represent alternative views of knowledge artifacts of the standard names. 
-'''To be confirmed and links provided.'''
+```To be confirmed and links provided.```
 * NERC Vocabulary Server
 * MMI Ontology Registry and Repository
 * The MARIS Vocabulary Server
@@ -249,7 +249,7 @@ These have been republished from the original XML, and as of 2014 are updated qu
 
 <a name="stdnames_mappings"></a>
 ### Are there mappings of the standard name terms to other terms?
-'''To be confirmed and links provided.'''
+```To be confirmed and links provided.```
 
 Yes, perhaps most important of these is a mapping within the CF standard names vocabulary. This provides SKOS-based relationships among CF terms, for example broader and narrower relations.
 
@@ -281,13 +281,13 @@ _ -- how to build and use CF-compatible units_
 
 <a name="who_docs"></a>
 ### Who physically maintains the standards documentation?
-'''Who maintains the CF standard?'''
+```Who maintains the CF standard?```
 Alison Pamment of the [Science and Technologies Facility Council](http://stfc.ac.uk) maintains the CF Standard Names.
 A team at Lawrence Livermore National Lab maintains documents and content on the CF web site.
 
 <a name="where_docs"></a>
 ### Where is the documentation stored?
-'''To be confirmed and links provided.'''
+```To be confirmed and links provided.```
 The documentation is stored on a GitHub repository, and its format is converted for presentation on the CF web site. 
 
 <a name="access_docs"></a>
