@@ -4,7 +4,6 @@ This page covers many of the most common questions asked about the Climate and F
 
 The questions are organized by topic. Click on any question to go to its answer.
 
-<div style="color:#0000FF;">This could be red.</div>
 ------------
 
 # Contents
@@ -28,12 +27,16 @@ This section includes general background about the CF conventions.
 * [What is the process for accepting a change?](#change_process)
 * [When are changes added to the CF Convention?](#when_updated)
 
+## Common questions about CF details
+
+* [My file was written using an earlier version of CF. Is it still compliant?](#version_compliance)
+* [For vertical coordinates, how does the `positive` attribute work?](#vertical_coords_positive_attribute)
+
 ## Rich technical questions about CF
 
 These questions address big picture concepts included in CF.
 
 * [What are Discrete Sampling Geometries? Do I need to worry about them?](#dsg)
-* [My file was written using an earlier version of CF. Is it still compliant?](#version_compliance)
 
 ## CF Standard Names
 
@@ -126,6 +129,19 @@ The community discusses requests for changes via the mail list and trac site, an
 ### When are changes added to the CF Convention?
 Changes to the CF Convention itself are grouped into major releases. Because the proposed changes are visible to the community pending the final release of the convention, major releases may take as long as a year or more to finalize, but users may choose to follow the proposed new language in advance of the release date.
 
+## Common questions about CF details
+
+<a name="version_compliance"></a>
+### My file was written using an earlier version of CF. Is it still compliant?
+The compliance is determined by the version number you define in the `Conventions` attribute within each file. If your file complies with the specifications of the CF version in the `Conventions` attribute, it stays in compliance with CF even as newer versions of the CF Conventions are released. As a general rule, tools that work with files following the CF convention should be backward-compatible with earlier versions. 
+
+An effort is made to avoid changing specific aspects of previous versions of the CF Conventions, though occasionally this is not possible.
+
+<a name="vertical_coords_positive_attribute"</a>
+### For vertical coordinates, how does the `positive` attribute work? 
+`more needed here`
+The positive attribute indicates whether increasing values are further up (away from earth center). There is a default direction for most vertical coordinate standard names. For example, altitude has the positive direction up, while depth has the positive direction down. 
+
 ## Rich technical questions about CF
 
 <a name="dsg"></a>
@@ -133,12 +149,6 @@ Changes to the CF Convention itself are grouped into major releases. Because the
 Discrete Sampling Geometries, addressed in Section 9 of the CF Conventions, were added to offer greater efficiency and clarity for storing a collection of 'features' in a single file. Here we define a feature by example: it can be a point, a time series, a trajectory, a profile, a time series (of) profile(s), or a trajectory (of) profile(s). All of these can be stored in CF-compliant netCDF files, but there was no consistent way to do so and people and programs could not leverage the features in the files.
 
 You don't have to worry about Discrete Sampling Geometries, or DSGs, in order to be CF-compliant. If you have data that correspond to one of these feature types, you can read the the Discrete Sampling Geometry section to learn how to represent those data so that others can fully leverage them. (Note: The `feature_type attribute` is reserved for files that represent a Discrete Sampling Geometry.)
-
-<a name="version_compliance"></a>
-### My file was written using an earlier version of CF. Is it still compliant?
-The compliance is determined by the version number you define in the `Conventions` attribute within each file. If your file complies with the specifications of the CF version in the `Conventions` attribute, it stays in compliance with CF even as newer versions of the CF Conventions are released. As a general rule, tools that work with files following the CF convention should be backward-compatible with earlier versions. 
-
-An effort is made to avoid changing specific aspects of previous versions of the CF Conventions, though occasionally this is not possible.
 
 ## CF Standard Names
 
@@ -158,8 +168,7 @@ References:
 
 <a name="stdnames_components"></a>
 ### What are the components of a standard name?
-A CF standard name is a unique text string, part of which is associated in the CF Standard Names table to other attributes. 
-
+A CF standard name is a unique text string, which is associated in the CF Standard Names table to other attributes. 
 The text string is made up of two parts: the name (from the CF Standard Names table), and optionally, following the name and one or more blanks, a standard name modifier. The name contains no white space (underscores separate the words, in practice) and identifies the physical quantity. The modifier is used to describe a quantity which is related to another variable with the modified standard name. Details are provided in the convention section on [Standard Name](http://cfconventions.org/1.6.html#standard-name), and examples of modifiers are given in [Appendix C](http://cfconventions.org/1.6.html#standard-name-modifiers). 
 
 Several attributes are required for every standard name: the canonical units, which are *typical* units of the physical quantity, and the description, which clarifies related quantities and meanings of the standard name (but is not strictly a definition per se). Older standard names may not have a description. 
@@ -282,9 +291,10 @@ _ -- how to build and use CF-compatible units_
 
 <a name="who_docs"></a>
 ### Who physically maintains the standards documentation?
-<div style="color=red;">`Who maintains the CF standard?`</div>
+`Who maintains the CF standard?`
 
 Alison Pamment of the [Science and Technologies Facility Council](http://stfc.ac.uk) maintains the CF Standard Names.
+
 A team at Lawrence Livermore National Lab maintains documents and content on the CF web site.
 
 <a name="where_docs"></a>
