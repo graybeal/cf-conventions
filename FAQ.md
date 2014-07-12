@@ -271,12 +271,14 @@ As of 2014, none of these mappings are not regularly updated with the release  n
 ## CF and COARDS Units (UDUNITS)
 
 <a name="canonical"></a>
-### If my variable has a standard name, must it have the corresponding canonical units?
+### Must a variable have the same units as its standard name's canonical units?
+If you have a variable with a standard name, its units must be compatible with (convertible to) the canonical units of the standard name, but not exactly the same as the canonical units. For example, a variable with standard name wind_speed could have units miles/hour, since those can be converted to the canonical units of meters/second. 
 
+If the units of the variable are not convertible to the standard name's canonical units, this indicates the variable is not really of the same type as the standard name. 
 
 <a name="udunits_why"></a>
 ### Why does CF use UDUNITS as its standard?
-
+UDUNITS was specified in the original COARDS convention, and is a widely used standard with many tools and libraries.
 
 <a name="cf_units"></a>
 ### How do I specify units in CF?
