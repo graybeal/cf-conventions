@@ -60,6 +60,7 @@ These questions are not strictly part of CF, but CF depends on this understandin
 * [If my variable has a standard name, must it have the corresponding canonical units?](#canonical)
 * [Why does CF use UDUNITS as its standard?](#udunits_why)
 * [How do I specify units in CF?](#cf_units)
+* [How do units of time work?](#udunits_time)
 * [Are there other good resources about UDUNITS?](#udunits_refs)
 
 ## Maintaining the CF standard
@@ -269,6 +270,12 @@ As of 2014, none of these mappings are not regularly updated with the release  n
 
 <a name="udunits"></a>
 ## CF and COARDS Units (UDUNITS)
+,
+<a name="udunits_why"></a>
+### Why does CF use UDUNITS as its standard?
+[UDUNITS](http://www.unidata.ucar.edu/software/udunits/) was specified in the original COARDS convention ("Where possible the units attribute should be formatted as per the recommendations in the Unidata udunits package"), and is a widely used standard with many tools and libraries. The package contains an extensive unit database, which is in XML format and user-extensible (though the extensions will not be compliant with CF).
+
+Note that CF depends on UDUNITS as a standard for formatting the units string, but not as a software package.
 
 <a name="canonical"></a>
 ### Must a variable have the same units as its standard name's canonical units?
@@ -276,18 +283,54 @@ If you have a variable with a standard name, its units must be compatible with (
 
 If the units of the variable are not convertible to the standard name's canonical units, this indicates the variable is not really of the same type as the standard name. 
 
-<a name="udunits_why"></a>
-### Why does CF use UDUNITS as its standard?
-UDUNITS was specified in the original COARDS convention, and is a widely used standard with many tools and libraries.
-
 <a name="cf_units"></a>
 ### How do I specify units in CF?
-_ -- how to build and use CF-compatible units_
+UDUNITS has a small set of base units and another set of 'common' aliases that can be used as base units. It also specifies a large set of prefixes that can be prepended to the base units. (All of the components can be specified by their full strings, or by their 'symbol' abbreviations.) 
+
+These combinations can be combined as follows in CF:
+* multiplied together, separated by spaces (or a dot, '.', if using symbols);
+* taken to an integral power, using '^n' or '**n' notation (or simply appending the power, if using symbols;
+* divided by a quotient, using 'per' (or a slash, '/', if using symbols) to indicate the quotient
+
+You can review [basic examples in the UDUNITS documentation](http://www.unidata.ucar.edu/software/udunits/udunits-2.2.16/doc/udunits/udunits2lib.html#Examples).
+
+UDUNITS prefixes are shown in the following table.
+
+Name | Symbol | Value
+---- | ------ | -----
+yotta | Y | 1e24
+zetta | Z | 1e21
+exa | E | 1e18
+peta | P | 1e15
+tera | T | 1e12
+giga | G | 1e9
+mega | M | 1e6
+kilo | k | 1e3
+hecto | h | 100
+deka | da | 10
+deci | d | .1
+centi | c | .01
+milli | m | 1e-3
+micro | u | 1e-6
+nano | n | 1e-9
+pico | p | 1e-12
+femto | f | 1e-15
+atto | a | 1e-18
+zepto | z | 1e-21
+yocto | y | 1e-24
+
+More complicated examples of units can be found in the CF Standard Names table, which lists the canonical units for each standard name.
+
+<a name="udunits_time"></a>
+### How do units of time work?
+Most time units in CF are specified as being of the format 'time-unit since timestamp', where time-unit is often seconds, and the most often used timestamp is 1970-01-01T00:00:00. 
 
 <a name="udunits_refs"></a>
 ### Are there other good resources about UDUNITS?
 
+The [API-Guide](http://www.unidata.ucar.edu/software/udunits/udunits-2.2.16/doc/udunits/udunits2lib.html) contains some detailed information, but it is oriented entirely for developers. 
 
+A [units conversion page on the ERDDAP site](http://coastwatch.pfeg.noaa.gov/erddap/convert/units.html) lets you try different unit strings, and provides additional context on UDUNITS (and UCUM units) further down the page.
 
 ## Maintaining the CF standard
 
