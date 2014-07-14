@@ -305,12 +305,12 @@ peta | P | 1e15
 tera | T | 1e12
 giga | G | 1e9
 mega | M | 1e6
-kilo | k | 1e3
+kilo | k | 1e3 (1000)
 hecto | h | 100
 deka | da | 10
 deci | d | .1
 centi | c | .01
-milli | m | 1e-3
+milli | m | 1e-3 (.001)
 micro | u | 1e-6
 nano | n | 1e-9
 pico | p | 1e-12
