@@ -140,10 +140,32 @@ An effort is made to avoid changing specific aspects of previous versions of the
 
 <a name="vertical_coords_positive_attribute"</a>
 ### For vertical coordinates, how does the `positive` attribute work? 
-`more needed here`
+'''more needed here, check ticket 109 too'''
 The positive attribute indicates whether increasing values are further up (away from earth center). There is a default direction for most vertical coordinate standard names. For example, altitude has the positive direction up, while depth has the positive direction down. 
 
 ## Rich technical questions about CF
+
+
+* There is no requirement about how point values should be chosen in intervals,
+when it's arbitrary (i.e. if the bounds are really what you care about). The
+mid-point is a sensible choice.
+
+* CF allows some things which aren't udunits viz sverdrup, PSU, decibel.
+
+* Isotherms are described as a data variable of depth with a coordinate of
+(potential) temperature. Degree-day integrals are described as
+integral_of_air_temperature_deficit|excess_wrt_time with a coordinate of
+air_temperature_threshold. Electromagnetic radiation at particular wavelengths
+uses a coordinate of radiation_wavelength|frequency. Maybe there are other
+examples of coords that people find non-intuitive.
+
+* The flag_values mechanism is often used to encode strings in numeric data
+variables. Although encoded, the data is still self-describing because the
+flag_meanings gives the translation.
+
+* There are several ways that multiple time coordinates may be handled:
+http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html
+
 
 <a name="dsg"></a>
 ### What are Discrete Sampling Geometries? Do I need to worry about them?
@@ -331,6 +353,8 @@ Most time units in CF are specified as being of the format 'time-unit since time
 The [API-Guide](http://www.unidata.ucar.edu/software/udunits/udunits-2.2.16/doc/udunits/udunits2lib.html) contains some detailed information, but it is oriented entirely for developers. 
 
 A [units conversion page on the ERDDAP site](http://coastwatch.pfeg.noaa.gov/erddap/convert/units.html) lets you try different unit strings, and provides additional context on UDUNITS (and UCUM units) further down the page.
+
+The strings corresponding to accepted UDUNITS can be found in the MMI Ontology Registry and Repository UDUNITS vocabulary entries
 
 ## Maintaining the CF standard
 
