@@ -31,11 +31,15 @@ This section includes general background about the CF conventions.
 
 * [My file was written using an earlier version of CF. Is it still compliant?](#version_compliance)
 * [For vertical coordinates, how does the `positive` attribute work?](#vertical_coords_positive_attribute)
+* [How can I encode flag values (or other enumerated lists) with CF?](flag_values)
+* [What good is the auxiliary coordinate axis, how is it different from a regular coordinate axis?](auxiliary_coordinate_axis)
 
 ## Rich technical questions about CF
 
 These questions address big picture concepts included in CF.
 
+* [My data variables have an unusual coordinate axis, how do I describe it?](coordinate_axis_unusual)
+* [How can I describe a file with multiple time coordinates (e.g., run time AND valid or forecast time)?](coordinate_axis_time)
 * [What are Discrete Sampling Geometries? Do I need to worry about them?](#dsg)
 
 ## CF Standard Names
@@ -140,31 +144,49 @@ An effort is made to avoid changing specific aspects of previous versions of the
 
 <a name="vertical_coords_positive_attribute"</a>
 ### For vertical coordinates, how does the `positive` attribute work? 
-'''more needed here, check ticket 109 too'''
-The positive attribute indicates whether increasing values are further up (away from earth center). There is a default direction for most vertical coordinate standard names. For example, altitude has the positive direction up, while depth has the positive direction down. 
+***more needed here, check ticket 109 too***
+If your vertical coordinate is some form of pressure, you won't have to worry about the `positive` attribute -- increasing pressure is always 'down' (closer to the center of the earth). 
+
+If your vertical coordinate is anything else, you must provide a `positive` attribute. This takes a value of 'up' or 'down', indicating whether more positive values are further away from earth center (up), or toward earth center. There is a default direction for most vertical coordinate standard names. For example, altitude has positive direction up, while depth has positive direction down (depth > 0 is below sea level). However, in some data sets (particularly oceanographic ones) depth values take the opposite sign; so if you specify a coordinate standard name of depth, and a positive attribute value of up, the variable will be interpreted as having an inverted depth direction (but a warning will be issued).
+
+Note that the standard name attribute is not required for the vertical coordinate, but the positive attribute is required if the standard name is not pressure.
+
+<a name="flag_values"</a>
+### How can I encode flag values (or other enumerated lists) with CF?
+Often data values in an enumerated list are given as string codes ("UP", "GOOD", "Warning"), yet it is more useful to encode these values as integers. CF's [flag_values mechanism](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/ch03s05.html) can encode strings in numeric data variables, while defining flag_meanings to map the numbers to the meanings. The `flag_values` and `flag_meanings` attributes (and, if necessary, the `flag_masks` attribute) describe a status flag consisting of mutually exclusive coded values. The `flag_values` attribute is the same type as the variable to which it is attached, and contains a list of the possible flag values. The `flag_meanings` attribute is a string whose value is a blank separated list of descriptive words or phrases, one for each flag value. 
+
+<a name="auxiliary_coordinate_axis"</a>
+### What good is the auxiliary coordinate axis, how is it different from a regular coordinate axis?
+In NetCDF, a `coordinate variable` is a one-dimensional variable with the same name as its dimension [e.g., time(time)], is a numeric data type, has values that are ordered monotonically (always going in one direction), and has no missing values. If you have a variable that contains coordinate values but does not meet these criteria, in CF you can still indicate that it has coordinate values by naming it as an auxiliary coordinate variable. 
+
+The rules for creating and using auxiliary coordinate variables are described in the [Coordinate Systems](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#coordinate-system) section of the Convention.
 
 ## Rich technical questions about CF
 
+<a name="coordinate_axis_unusual"</a>
+### My data variables have an unusual coordinate axis, how do I describe it?
+CF offers a rich set of options for specifying coordinate axes. Here is a short list of possibilities; others may be appropriate.
+* [Discrete axes](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#discrete-axis) can have unordered, enumerated axis values, like days of the week or model levels [example](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#alternative-coordinates).
+* Isotherms are described as a data variable of depth with a coordinate of (potential) temperature. 
+* Various other vertical coordinate systems that are dimensionless are explicitly listed in [Appendix D](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#dimensionless-v-coord), and are specified as described in [Dimensionless Vertical Coordinates section](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#dimensionless-vertical-coordinate).
+* Swath coordinates (e.g., 'along-track' and 'across-track' values often obtained from platforms following a path, like satellites, planes, and autonomous underwater vehicles) can be expressed as x,y coordinates that are mapped to latitude and longitude.
+```need example for swath, [these](http://kitt.llnl.gov/trac/wiki/SatelliteData) don't seem quite illustrative```
+* Degree-day integrals are described as integral_of_air_temperature_deficit|excess_wrt_time with a coordinate of air_temperature_threshold. 
+* Electromagnetic radiation at particular wavelengths uses a coordinate of radiation_wavelength or radiation_frequency.
 
-* There is no requirement about how point values should be chosen in intervals,
-when it's arbitrary (i.e. if the bounds are really what you care about). The
-mid-point is a sensible choice.
+<a name=coordinate_axis_time"</a>
+### How can I describe a file with multiple time coordinates (e.g., run time AND valid or forecast time)?
+There are several ways that multiple time coordinates may be handled; you may wish to review the details in [this list message](http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html). 
+ 
+CF's standard name for the valid or forecast time is `time` (also used for the time of an observation). CF also has a standard name for the time the analysis was performed (its run time): forecast_reference_time. Very briefly, values in either or both of these axes may vary (a single run may have multiple forecast periods, or multiple runs may target a single period, or multiple runs may target multiple periods). If either axis contains just a single value, they are both specified as coordinates. If both are multi-valued, then they are each defined as one-dimensional auxiliary coordinate variables, with a common index dimension. 
 
-* CF allows some things which aren't udunits viz sverdrup, PSU, decibel.
+CF section 5.7 has an [example of the first case](http://cfconventions.org/Data/cf-convetions/cf-conventions-1.7/build/cf-conventions.html#scalar-coordinate-variables), with a scalar coordinate variable for forecast_reference_time and a multivalued time axis for the valid time.
 
-* Isotherms are described as a data variable of depth with a coordinate of
-(potential) temperature. Degree-day integrals are described as
-integral_of_air_temperature_deficit|excess_wrt_time with a coordinate of
-air_temperature_threshold. Electromagnetic radiation at particular wavelengths
-uses a coordinate of radiation_wavelength|frequency. Maybe there are other
-examples of coords that people find non-intuitive.
+CF ticket #117 has an [example of the second case](http://kitt.llnl.gov/trac/ticket/117), drawn from the email above.
 
-* The flag_values mechanism is often used to encode strings in numeric data
-variables. Although encoded, the data is still self-describing because the
-flag_meanings gives the translation.
-
-* There are several ways that multiple time coordinates may be handled:
-http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html
+### Point values in intervals
+There is no requirement about how point values should be chosen in intervals, when it's arbitrary (i.e. if the bounds are really what you care about). The mid-point is a sensible choice.
+`IN CONSTRUCTION`
 
 
 <a name="dsg"></a>
@@ -291,11 +313,16 @@ The CF standard names also have been mapped to the Global Change Master Director
 As of 2014, none of these mappings are not regularly updated with the release  new versions of the CF standard names.
 
 <a name="udunits"></a>
-## CF and COARDS Units (UDUNITS)
+## Units in CF (UDUNITS)
 ,
 <a name="udunits_why"></a>
 ### Why does CF use UDUNITS as its standard?
 [UDUNITS](http://www.unidata.ucar.edu/software/udunits/) was specified in the original COARDS convention ("Where possible the units attribute should be formatted as per the recommendations in the Unidata udunits package"), and is a widely used standard with many tools and libraries. The package contains an extensive unit database, which is in XML format and user-extensible (though the extensions will not be compliant with CF).
+
+There are some units CF allows that do not appear in UDUNITS. In particular:
+* sverdrup:  measure of volume transport, equivalent to 1 million cubic metres per second (264,000,000 USgal/s). Its symbol is Sv, which conflicts with the SI unit symbol for sievert.
+* PSU: practical salinity unit, a measure of salinity
+* decibel: a logarithmic measure of relative acoustic or energy intensity; symbol dB, db, or dbel
 
 Note that CF depends on UDUNITS as a standard for formatting the units string, but not as a software package.
 
